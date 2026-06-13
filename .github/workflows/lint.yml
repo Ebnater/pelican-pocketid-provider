@@ -69,8 +69,9 @@ jobs:
 
       - name: Move plugin files and phpstan.neon
         run: |
-          mkdir -p pelican/plugins/pocketid-provider
-          rsync -av --progress ./ pelican/plugins/pocketid-provider/ --exclude=pelican --exclude=.github --exclude=phpstan.neon --exclude=pint.json --exclude=.gitignore
+          plugin_id=$(jq -r '.id' plugin.json)
+          mkdir -p "pelican/plugins/$plugin_id"
+          rsync -av --progress ./ "pelican/plugins/$plugin_id/" --exclude=pelican --exclude=.github --exclude=phpstan.neon --exclude=pint.json --exclude=.gitignore
           cp phpstan.neon pelican/phpstan.neon
 
       - name: Run PHPStan Analysis
