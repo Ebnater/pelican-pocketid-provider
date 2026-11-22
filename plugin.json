@@ -11,6 +11,7 @@
   "class": "PocketIDProviderPlugin",
   "panels": null,
   "panel_version": null,
+  "api_version": 1,
   "composer_packages": {
     "socialiteproviders/pocketid": "^5.0"
   }
